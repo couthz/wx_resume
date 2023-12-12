@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-US" translate="no">
+  <head>
+    <base href="/" />
+
+    <!-- SEO -->
+    <title>Reactive Resume - A free and open-source resume builder</title>
+    <meta
+      name="description"
+      content="A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
+    />
+
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta name="googlebot" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/icon/dark.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/icon/light.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Phosphor Icons -->
+    <!-- 由于墙了,下面的script代替这一行 -->
+    <!-- <script src="https://unpkg.com/@phosphor-icons/web"></script> -->
+  </body>
+
+  <script>
+    var head = document.getElementsByTagName("head")[0];
+
+    for (weight of ["regular", "thin", "light", "bold", "fill", "duotone"]) {
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href =
+        "https://registry.npmmirror.com/@phosphor-icons/web/2.0.3/files/src/" + weight + "/style.css"
+      head.appendChild(link);
+    }
+  </script>
+</html>
