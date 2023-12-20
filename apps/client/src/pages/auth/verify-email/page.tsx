@@ -40,7 +40,7 @@ export const VerifyEmailPage = () => {
     <div className="space-y-6">
       <Helmet>
         <title>
-          {t`Verify your email address`} - {t`Reactive Resume`}
+          {t`验证您的邮箱`} - {t`微行简历`}
         </title>
       </Helmet>
 
@@ -48,23 +48,22 @@ export const VerifyEmailPage = () => {
         <h2 className="text-2xl font-semibold tracking-tight">{t`Verify your email address`}</h2>
         <p className="leading-relaxed opacity-75">
           <Trans>
-            You should have received an email from <strong>Reactive Resume</strong> with a link to
-            verify your account.
+            您的邮箱应该已经收到来自 <strong>微行简历</strong> 的验证链接
           </Trans>
         </p>
       </div>
 
       <Alert variant="info">
         <Info size={18} />
-        <AlertTitle>{t`Please note that this step is completely optional.`}</AlertTitle>
+        <AlertTitle>{t`注意这一步是可选的.`}</AlertTitle>
         <AlertDescription>
-          {t`We verify your email address only to ensure that we can send you a password reset link in case you forget your password.`}
+          {t`我们验证您的电子邮件地址只是为了确保在您忘记密码的情况下，我们可以向您发送密码重置链接`}
         </AlertDescription>
       </Alert>
 
       <Button asChild disabled={loading}>
         <Link to="/dashboard">
-          {t`Go to Dashboard`}
+          {t`前往工作台`}
           <ArrowRight className="ml-2" />
         </Link>
       </Button>
