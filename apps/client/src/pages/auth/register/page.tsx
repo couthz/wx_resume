@@ -64,17 +64,17 @@ export const RegisterPage = () => {
     <div className="space-y-8">
       <Helmet>
         <title>
-          {t`Create a new account`} - {t`Reactive Resume`}
+          {t`创建新用户`} - {t`微行简历`}
         </title>
       </Helmet>
 
       <div className="space-y-1.5">
-        <h2 className="text-2xl font-semibold tracking-tight">{t`Create a new account`}</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">{t`创建新用户`}</h2>
         <h6 className={cn(emailAuthDisabled && "hidden")}>
-          <span className="opacity-75">{t`Already have an account?`}</span>
+          <span className="opacity-75">{t`已经拥有账户?`}</span>
           <Button asChild variant="link" className="px-1.5">
             <Link to="/auth/login">
-              {t`Sign in now`} <ArrowRight className="ml-1" />
+              {t`去登录`} <ArrowRight className="ml-1" />
             </Link>
           </Button>
         </h6>
@@ -103,11 +103,11 @@ export const RegisterPage = () => {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t`Name`}</FormLabel>
+                  <FormLabel>{t`昵称`}</FormLabel>
                   <FormControl>
                     <Input
                       placeholder={t({
-                        message: "John Doe",
+                        message: "Chris zhc",
                         context:
                           "Localized version of a placeholder name. For example, Max Mustermann in German or Jan Kowalski in Polish.",
                       })}
@@ -124,11 +124,11 @@ export const RegisterPage = () => {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t`Username`}</FormLabel>
+                  <FormLabel>{t`用户名`}</FormLabel>
                   <FormControl>
                     <Input
                       placeholder={t({
-                        message: "john.doe",
+                        message: "chris.zhc",
                         context:
                           "Localized version of a placeholder username. For example, max.mustermann in German or jan.kowalski in Polish.",
                       })}
@@ -145,7 +145,7 @@ export const RegisterPage = () => {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t`Email`}</FormLabel>
+                  <FormLabel>{t`邮箱`}</FormLabel>
                   <FormControl>
                     <Input
                       placeholder={t({
@@ -156,6 +156,11 @@ export const RegisterPage = () => {
                       {...field}
                     />
                   </FormControl>
+                  <FormDescription>
+                    <Trans>
+                      请确认邮箱正确,以便找回密码
+                    </Trans>
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -166,23 +171,18 @@ export const RegisterPage = () => {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t`Password`}</FormLabel>
+                  <FormLabel>{t`密码`}</FormLabel>
                   <FormControl>
                     <Input type="password" {...field} />
                   </FormControl>
-                  <FormDescription>
-                    <Trans>
-                      Hold <code className="text-xs font-bold">Ctrl</code> to display your password
-                      temporarily.
-                    </Trans>
-                  </FormDescription>
+
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <Button disabled={loading} className="mt-4 w-full">
-              {t`Sign up`}
+            <Button disabled={loading} className="w-full mt-4">
+              {t`注册`}
             </Button>
           </form>
         </Form>

@@ -1,34 +1,32 @@
 import { useEffect, useMemo } from "react";
 import { Outlet } from "react-router-dom";
-
+import webfontloader from "webfontloader";
 import { useArtboardStore } from "../store/artboard";
 
 export const ArtboardPage = () => {
   const metadata = useArtboardStore((state) => state.resume.metadata);
 
   const fontString = useMemo(() => {
-    const family = metadata.typography.font.family;
-    const variants = metadata.typography.font.variants.join(",");
-    const subset = metadata.typography.font.subset;
+    const family = metadata.typography.font.family.split(" ").join("+");
+    const variants = metadata.typography.font.variants.join(";");
 
-    return `${family}:${variants}:${subset}`;
+    return `${family}:wght@${variants}`;
   }, [metadata.typography.font]);
 
-  // useEffect(() => {
-  //   webfontloader.load({
-  //     // google: { families: [fontString] },
-  //     custom: {
-  //       families: [fontString],
-  //       urls: ["https://fonts.font.im/css?family=IBM+Plex+Sans:400,400i,500,500i,600,600i"],
-  //     },
-  //     active: () => {
-  //       const width = window.document.body.offsetWidth;
-  //       const height = window.document.body.offsetHeight;
-  //       const message = { type: "PAGE_LOADED", payload: { width, height } };
-  //       window.postMessage(message, "*");
-  //     },
-  //   });
-  // }, [fontString]);
+  useEffect(() => {
+    webfontloader.load({
+      custom: {
+        families: [fontString],
+        urls: [`https://fonts.loli.net/css2?family=${fontString}`],
+      },
+      active: () => {
+        const width = window.document.body.offsetWidth;
+        const height = window.document.body.offsetHeight;
+        const message = { type: "PAGE_LOADED", payload: { width, height } };
+        window.postMessage(message, "*");
+      },
+    });
+  }, [fontString]);
 
   // Font Size & Line Height
   useEffect(() => {

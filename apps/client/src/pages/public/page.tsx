@@ -74,7 +74,7 @@ export const PublicResumePage = () => {
 
       <div
         style={{ width: `${pageSizeMap[format].width}mm` }}
-        className="mx-auto mb-6 mt-16 overflow-hidden rounded shadow-xl print:m-0 print:shadow-none"
+        className="mx-auto mt-16 mb-6 overflow-hidden rounded shadow-xl print:m-0 print:shadow-none"
       >
         <iframe
           title={title}
@@ -97,7 +97,7 @@ export const PublicResumePage = () => {
 
       <div className="fixed bottom-5 right-5 print:hidden">
         <div className="flex items-center gap-x-4">
-          <Button variant="outline" className="gap-x-2 rounded-full" onClick={onDownloadPdf}>
+          <Button variant="outline" className="rounded-full gap-x-2" onClick={onDownloadPdf}>
             {loading ? <CircleNotch size={16} className="animate-spin" /> : <FilePdf size={16} />}
             {/* eslint-disable-next-line lingui/no-unlocalized-strings */}
             <span>{t`Download PDF`}</span>

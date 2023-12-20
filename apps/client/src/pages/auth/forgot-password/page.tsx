@@ -46,15 +46,15 @@ export const ForgotPasswordPage = () => {
       <div className="space-y-8">
         <Helmet>
           <title>
-            {t`You've got mail!`} - {t`Reactive Resume`}
+            {t`邮件已发送!`} - {t`微行简历`}
           </title>
         </Helmet>
 
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold tracking-tight">{t`You've got mail!`}</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">{t`邮件已发送`}</h2>
           <Alert variant="success">
             <AlertDescription className="pt-0">
-              {t`A password reset link should have been sent to your inbox, if an account existed with the email you provided.`}
+              {t`密码重置链接已发送到您的邮箱.`}
             </AlertDescription>
           </Alert>
         </div>
@@ -65,9 +65,9 @@ export const ForgotPasswordPage = () => {
   return (
     <div className="space-y-8">
       <div className="space-y-1.5">
-        <h2 className="text-2xl font-semibold tracking-tight">{t`Forgot your password?`}</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">{t`忘记密码?`}</h2>
         <h6 className="leading-relaxed opacity-75">
-          {t`Enter your email address and we will send you a link to reset your password if the account exists.`}
+          {t`请输入邮箱地址, 我们将给您的邮箱发送重置密码链接.`}
         </h6>
       </div>
 
@@ -79,23 +79,23 @@ export const ForgotPasswordPage = () => {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t`Email`}</FormLabel>
+                  <FormLabel>{t`邮箱`}</FormLabel>
                   <FormControl>
-                    <Input placeholder="john.doe@example.com" {...field} />
+                    <Input placeholder="chris.zhc@example.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <div className="mt-4 flex items-center gap-x-2">
+            <div className="flex items-center mt-4 gap-x-2">
               <Button variant="link" className="px-5" onClick={() => navigate(-1)}>
                 <ArrowLeft size={14} className="mr-2" />
-                <span>{t`Back`}</span>
+                <span>{t`返回`}</span>
               </Button>
 
               <Button type="submit" disabled={loading} className="w-full">
-                {t`Send Email`}
+                {t`发送邮件`}
               </Button>
             </div>
           </form>

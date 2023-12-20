@@ -94,9 +94,9 @@ export const LocaleComboboxPopover = ({ value, onValueChange }: Props) => {
           role="combobox"
           variant="outline"
           aria-expanded={open}
-          className="w-full justify-between hover:bg-secondary/20 active:scale-100"
+          className="justify-between w-full hover:bg-secondary/20 active:scale-100"
         >
-          <span className="line-clamp-1 text-left font-normal">
+          <span className="font-normal text-left line-clamp-1">
             {selected?.name} <span className="ml-1 text-xs opacity-50">({selected?.locale})</span>
           </span>
           <CaretDown

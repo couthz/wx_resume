@@ -2,8 +2,8 @@ import type { LinguiConfig } from "@lingui/conf";
 
 const config: LinguiConfig = {
   format: "po",
-  sourceLocale: "en-US",
-  fallbackLocales: { default: "en-US" },
+  sourceLocale: "zh-CN",
+  fallbackLocales: { default: "zh-CN" },
   locales: [
     "af-ZA",
     "am-ET",

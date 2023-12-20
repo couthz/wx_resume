@@ -15,12 +15,12 @@ export const HeroCTA = () => {
     return (
       <>
         <Button asChild size="lg">
-          <Link to="/dashboard">{t`Go to Dashboard`}</Link>
+          <Link to="/dashboard">{t`进入工作台`}</Link>
         </Button>
 
         <Button size="lg" variant="link" onClick={() => logout()}>
           <SignOut className="mr-3" />
-          {t`Logout`}
+          {t`退出登录`}
         </Button>
       </>
     );
@@ -30,15 +30,15 @@ export const HeroCTA = () => {
     return (
       <>
         <Button asChild size="lg">
-          <Link to="/auth/login">{t`Get Started`}</Link>
+          <Link to="/auth/login">{t`去登录`}</Link>
         </Button>
 
-        <Button asChild size="lg" variant="link">
+        {/* <Button asChild size="lg" variant="link">
           <a href="https://docs.rxresu.me" target="_blank" rel="noopener noreferrer nofollow">
             <Book className="mr-3" />
             {t`Learn more`}
           </a>
-        </Button>
+        </Button> */}
       </>
     );
   }

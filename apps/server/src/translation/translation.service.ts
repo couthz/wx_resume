@@ -36,10 +36,10 @@ export class TranslationService {
       data.push({
         data: {
           language: {
-            id: "en-US",
-            locale: "en-US",
-            editorCode: "en",
-            name: "English",
+            id: "zh-CN",
+            locale: "zh-CN",
+            editorCode: "zh",
+            name: "Chinese",
           },
           translationProgress: 100,
         },

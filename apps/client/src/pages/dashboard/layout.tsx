@@ -36,7 +36,7 @@ export const DashboardLayout = () => {
         animate={{ x: 0 }}
         className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-[320px] lg:flex-col"
       >
-        <div className="h-full rounded p-4">
+        <div className="h-full p-4 rounded">
           <Sidebar />
         </div>
       </motion.div>

@@ -8,9 +8,9 @@ import { RegisterPage } from "../pages/auth/register/page";
 import { ResetPasswordPage } from "../pages/auth/reset-password/page";
 import { VerifyEmailPage } from "../pages/auth/verify-email/page";
 import { VerifyOtpPage } from "../pages/auth/verify-otp/page";
-import { BuilderLayout } from "../pages/builder/layout";
-import { BuilderPage } from "../pages/builder/page";
-import { builderLoader } from "../pages/builder/page";
+import { ResumeEditLayout } from "../pages/resume-edit/layout";
+import { BuilderPage } from "../pages/resume-edit/page";
+import { builderLoader } from "../pages/resume-edit/page";
 import { DashboardLayout } from "../pages/dashboard/layout";
 import { ResumesPage } from "../pages/dashboard/resumes/page";
 import { SettingsPage } from "../pages/dashboard/settings/page";
@@ -72,7 +72,7 @@ export const routes = createRoutesFromElements(
 
     <Route path="builder">
       <Route element={<AuthGuard />}>
-        <Route element={<BuilderLayout />}>
+        <Route element={<ResumeEditLayout />}>
           <Route path=":id" loader={builderLoader} element={<BuilderPage />} />
 
           <Route index element={<Navigate to="/dashboard/resumes" replace />} />

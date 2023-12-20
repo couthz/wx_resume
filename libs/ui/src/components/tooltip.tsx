@@ -35,7 +35,7 @@ type TooltipProps = React.ComponentPropsWithoutRef<typeof TooltipContent> & {
 
 export const Tooltip = ({ content, children, ...props }: TooltipProps) => (
   <TooltipRoot>
-    <TooltipTrigger asChild>{children}</TooltipTrigger>
+    <TooltipTrigger  asChild>{children}</TooltipTrigger>
     <TooltipContent {...props}>{content}</TooltipContent>
   </TooltipRoot>
 );

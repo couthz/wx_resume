@@ -13,6 +13,7 @@ import {
   FormItem,
   FormLabel,
   Input,
+  Label,
 } from "@reactive-resume/ui";
 import { AnimatePresence, motion } from "framer-motion";
 import { useForm } from "react-hook-form";
@@ -31,7 +32,7 @@ const formSchema = z
   .refine((data) => data.password === data.confirmPassword, {
     path: ["confirmPassword"],
     // eslint-disable-next-line lingui/t-call-in-function
-    message: t`The passwords you entered do not match.`,
+    message: t`两次输入的密码不一致.`,
   });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -56,33 +57,35 @@ export const SecuritySettings = () => {
 
     toast({
       variant: "success",
-      title: t`Your password has been updated successfully.`,
+      title: t`密码更改成功.`,
     });
 
     onReset();
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3">
       <div>
-        <h3 className="text-2xl font-bold leading-relaxed tracking-tight">{t`Security`}</h3>
-        <p className="leading-relaxed opacity-75">
+        <h3 className="text-2xl font-bold leading-relaxed tracking-tight">{t`账户安全`}</h3>
+        {/* <p className="leading-relaxed opacity-75">
           {t`In this section, you can change your password and enable/disable two-factor authentication.`}
-        </p>
+        </p> */}
       </div>
 
-      <Accordion type="multiple" defaultValue={["password", "two-factor"]}>
-        <AccordionItem value="password">
-          <AccordionTrigger>{t`Password`}</AccordionTrigger>
-          <AccordionContent>
-            <Form {...form}>
+      {/* <Accordion type="multiple" defaultValue={["password", "two-factor"]}>
+        <AccordionItem value="password"> */}
+          {/* <AccordionTrigger>{t`更改密码`}</AccordionTrigger> */}
+          {/* <AccordionContent> */}
+          <div className="space-y-3">
+            <Label>更新密码</Label>
+            <Form  {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-6 sm:grid-cols-2">
                 <FormField
                   name="password"
                   control={form.control}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{t`New Password`}</FormLabel>
+                      <FormLabel>{t`新密码`}</FormLabel>
                       <FormControl>
                         <Input type="password" {...field} />
                       </FormControl>
@@ -95,7 +98,7 @@ export const SecuritySettings = () => {
                   control={form.control}
                   render={({ field, fieldState }) => (
                     <FormItem>
-                      <FormLabel>{t`Confirm New Password`}</FormLabel>
+                      <FormLabel>{t`确认新密码`}</FormLabel>
                       <FormControl>
                         <Input type="password" {...field} />
                       </FormControl>
@@ -115,7 +118,7 @@ export const SecuritySettings = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -10 }}
-                      className="flex items-center space-x-2 self-center sm:col-start-2"
+                      className="flex items-center self-center space-x-2 sm:col-start-2"
                     >
                       <Button type="submit" disabled={loading}>
                         {t`Change Password`}
@@ -128,10 +131,11 @@ export const SecuritySettings = () => {
                 </AnimatePresence>
               </form>
             </Form>
-          </AccordionContent>
-        </AccordionItem>
+            </div>
+          {/* </AccordionContent>
+        </AccordionItem> */}
 
-        <AccordionItem value="two-factor">
+        {/* <AccordionItem value="two-factor">
           <AccordionTrigger>{t`Two-Factor Authentication`}</AccordionTrigger>
           <AccordionContent>
             {user?.twoFactorEnabled ? (
@@ -160,8 +164,8 @@ export const SecuritySettings = () => {
               </Button>
             )}
           </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+        </AccordionItem> */}
+      {/* </Accordion> */}
     </div>
   );
 };

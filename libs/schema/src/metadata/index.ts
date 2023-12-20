@@ -2,8 +2,8 @@ import { z } from "zod";
 
 export const defaultLayout = [
   [
-    ["profiles", "summary", "experience", "education", "projects", "volunteer", "references"],
-    ["skills", "interests", "certifications", "awards", "publications", "languages"],
+    [ "experience", "education", "projects","summary"],
+    ["skills", "languages", "certifications", "awards", "interests"],
   ],
 ];
 
@@ -30,9 +30,9 @@ export const metadataSchema = z.object({
   }),
   typography: z.object({
     font: z.object({
-      family: z.string().default("IBM Plex Serif"),
+      family: z.string().default("Noto Sans SC"),
       subset: z.string().default("latin"),
-      variants: z.array(z.string()).default(["regular"]),
+      variants: z.array(z.string()).default(["400"]),
       size: z.number().default(14),
     }),
     lineHeight: z.number().default(1.5),
@@ -68,9 +68,9 @@ export const defaultMetadata: Metadata = {
   },
   typography: {
     font: {
-      family: "IBM Plex Serif",
+      family: "Noto Sans SC",
       subset: "latin",
-      variants: ["regular", "italic", "600"],
+      variants: ["400"],
       size: 14,
     },
     lineHeight: 1.5,

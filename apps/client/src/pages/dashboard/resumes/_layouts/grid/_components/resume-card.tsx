@@ -75,7 +75,7 @@ export const ResumeCard = ({ resume }: Props) => {
                   size={64}
                   weight="thin"
                   opacity={0.5}
-                  className="animate-spin self-center justify-self-center"
+                  className="self-center animate-spin justify-self-center"
                 />
               </motion.div>
             )}
@@ -87,7 +87,7 @@ export const ResumeCard = ({ resume }: Props) => {
                 animate={{ opacity: 1 }}
                 loading="lazy"
                 alt={resume.title}
-                className="h-full w-full object-cover"
+                className="object-cover w-full h-full"
                 src={`${url}?cache=${new Date().getTime()}`}
               />
             )}
@@ -112,8 +112,8 @@ export const ResumeCard = ({ resume }: Props) => {
               "bg-gradient-to-t from-background/80 to-transparent",
             )}
           >
-            <h4 className="line-clamp-2 font-medium">{resume.title}</h4>
-            <p className="line-clamp-1 text-xs opacity-75">{t`Last updated ${lastUpdated}`}</p>
+            <h4 className="font-medium line-clamp-2">{resume.title}</h4>
+            {/* <p className="text-xs opacity-75 line-clamp-1">{t`上次更新 ${lastUpdated}`}</p> */}
           </div>
         </BaseCard>
       </ContextMenuTrigger>
@@ -121,17 +121,17 @@ export const ResumeCard = ({ resume }: Props) => {
       <ContextMenuContent>
         <ContextMenuItem onClick={onOpen}>
           <FolderOpen size={14} className="mr-2" />
-          {t`Open`}
+          {t`打开`}
         </ContextMenuItem>
         <ContextMenuItem onClick={onUpdate}>
           <PencilSimple size={14} className="mr-2" />
-          {t`Rename`}
+          {t`重命名`}
         </ContextMenuItem>
         <ContextMenuItem onClick={onDuplicate}>
           <CopySimple size={14} className="mr-2" />
-          {t`Duplicate`}
+          {t`复制`}
         </ContextMenuItem>
-        {resume.locked ? (
+        {/* {resume.locked ? (
           <ContextMenuItem onClick={onLockChange}>
             <LockOpen size={14} className="mr-2" />
             {t`Unlock`}
@@ -141,11 +141,11 @@ export const ResumeCard = ({ resume }: Props) => {
             <Lock size={14} className="mr-2" />
             {t`Lock`}
           </ContextMenuItem>
-        )}
+        )} */}
         <ContextMenuSeparator />
         <ContextMenuItem onClick={onDelete} className="text-error">
           <TrashSimple size={14} className="mr-2" />
-          {t`Delete`}
+          {t`删除`}
         </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>

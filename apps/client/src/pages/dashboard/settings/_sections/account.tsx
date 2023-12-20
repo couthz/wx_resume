@@ -101,10 +101,8 @@ export const AccountSettings = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-2xl font-bold leading-relaxed tracking-tight">{t`Account`}</h3>
-        <p className="leading-relaxed opacity-75">
-          {t`Here, you can update your account information such as your profile picture, name and username.`}
-        </p>
+        <h3 className="text-2xl font-bold leading-relaxed tracking-tight">{t`账户设置`}</h3>
+
       </div>
 
       <Form {...form}>
@@ -117,7 +115,7 @@ export const AccountSettings = () => {
                 <UserAvatar />
 
                 <FormItem className="flex-1">
-                  <FormLabel>{t`Picture`}</FormLabel>
+                  <FormLabel>{t`头像`}</FormLabel>
                   <FormControl>
                     <Input placeholder="https://..." {...field} value={field.value || ""} />
                   </FormControl>
@@ -149,7 +147,7 @@ export const AccountSettings = () => {
             control={form.control}
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t`Name`}</FormLabel>
+                <FormLabel>{t`昵称`}</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
@@ -163,7 +161,7 @@ export const AccountSettings = () => {
             control={form.control}
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t`Username`}</FormLabel>
+                <FormLabel>{t`用户名`}</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
@@ -177,7 +175,7 @@ export const AccountSettings = () => {
             control={form.control}
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t`Email`}</FormLabel>
+                <FormLabel>{t`邮箱`}</FormLabel>
                 <FormControl>
                   <Input type="email" {...field} />
                 </FormControl>
@@ -188,14 +186,14 @@ export const AccountSettings = () => {
                   )}
                 >
                   {user.emailVerified ? <Check size={12} /> : <Warning size={12} />}
-                  {user.emailVerified ? t`Verified` : t`Unverified`}
+                  {user.emailVerified ? t`已验证` : t`未验证`}
                   {!user.emailVerified && (
                     <Button
                       variant="link"
                       className="h-auto text-xs"
                       onClick={onResendVerificationEmail}
                     >
-                      {t`Resend email confirmation link`}
+                      {t`点击重新发送验证链接`}
                     </Button>
                   )}
                 </FormDescription>
@@ -210,7 +208,7 @@ export const AccountSettings = () => {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -10 }}
-                className="flex items-center space-x-2 self-center sm:col-start-2"
+                className="flex items-center self-center space-x-2 sm:col-start-2"
               >
                 <Button type="submit" disabled={loading}>
                   {t`Save Changes`}

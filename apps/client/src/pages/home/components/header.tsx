@@ -13,10 +13,10 @@ export const Header = () => (
   >
     <ProductHuntBanner />
 
-    <div className="bg-gradient-to-b from-background to-transparent py-3">
+    <div className="py-3 bg-gradient-to-b from-background to-transparent">
       <div className="container flex items-center justify-between">
         <Link to="/">
-          <Logo size={48} />
+          <Logo size={96} />
         </Link>
 
         <div />

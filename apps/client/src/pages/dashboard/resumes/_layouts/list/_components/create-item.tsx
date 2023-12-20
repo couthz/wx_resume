@@ -16,12 +16,11 @@ export const CreateResumeListItem = () => {
       onClick={() => open("create")}
       title={
         <>
-          <span>{t`Create a new resume`}</span>
+          <span>{t`创建新简历`}</span>
           {/* eslint-disable-next-line lingui/no-unlocalized-strings */}
           <KeyboardShortcut className="ml-2">^N</KeyboardShortcut>
         </>
       }
-      description={t`Start building from scratch`}
     />
   );
 };

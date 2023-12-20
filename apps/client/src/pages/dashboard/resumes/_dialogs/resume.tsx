@@ -145,16 +145,16 @@ export const ResumeDialog = () => {
           <Form {...form}>
             <form>
               <AlertDialogHeader>
-                <AlertDialogTitle>{t`Are you sure you want to delete your resume?`}</AlertDialogTitle>
+                <AlertDialogTitle>{t`确定要删除简历?`}</AlertDialogTitle>
                 <AlertDialogDescription>
-                  {t`This action cannot be undone. This will permanently delete your resume and cannot be recovered.`}
+                  {t`删除操作无法撤销.`}
                 </AlertDialogDescription>
               </AlertDialogHeader>
 
               <AlertDialogFooter>
-                <AlertDialogCancel>{t`Cancel`}</AlertDialogCancel>
+                <AlertDialogCancel>{t`取消`}</AlertDialogCancel>
                 <AlertDialogAction variant="error" onClick={form.handleSubmit(onSubmit)}>
-                  {t`Delete`}
+                  {t`删除`}
                 </AlertDialogAction>
               </AlertDialogFooter>
             </form>
@@ -174,17 +174,17 @@ export const ResumeDialog = () => {
                 <div className="flex items-center space-x-2.5">
                   <Plus />
                   <h2>
-                    {isCreate && t`Create a new resume`}
-                    {isUpdate && t`Update an existing resume`}
-                    {isDuplicate && t`Duplicate an existing resume`}
+                    {isCreate && t`创建新简历`}
+                    {isUpdate && t`更新简历`}
+                    {isDuplicate && t`复制简历`}
                   </h2>
                 </div>
               </DialogTitle>
-              <DialogDescription>
+              {/* <DialogDescription>
                 {isCreate && t`Start building your resume by giving it a name.`}
                 {isUpdate && t`Changed your mind about the name? Give it a new one.`}
                 {isDuplicate && t`Give your old resume a new name.`}
-              </DialogDescription>
+              </DialogDescription> */}
             </DialogHeader>
 
             <FormField
@@ -192,12 +192,12 @@ export const ResumeDialog = () => {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t`Title`}</FormLabel>
+                  <FormLabel>{t`简历名称`}</FormLabel>
                   <FormControl>
                     <div className="flex items-center justify-between gap-x-2">
                       <Input {...field} className="flex-1" />
 
-                      {(isCreate || isDuplicate) && (
+                      {/* {(isCreate || isDuplicate) && (
                         <Tooltip content={t`Generate a random title for your resume`}>
                           <Button
                             size="icon"
@@ -208,18 +208,16 @@ export const ResumeDialog = () => {
                             <MagicWand />
                           </Button>
                         </Tooltip>
-                      )}
+                      )} */}
                     </div>
                   </FormControl>
-                  <FormDescription>
-                    {t`Tip: You can name the resume referring to the position you are applying for.`}
-                  </FormDescription>
+
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <FormField
+            {/* <FormField
               name="slug"
               control={form.control}
               render={({ field }) => (
@@ -231,7 +229,7 @@ export const ResumeDialog = () => {
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
 
             <DialogFooter>
               <div className="flex items-center">
@@ -240,15 +238,15 @@ export const ResumeDialog = () => {
                   disabled={loading}
                   className={cn(isCreate && "rounded-r-none")}
                 >
-                  {isCreate && t`Create`}
-                  {isUpdate && t`Save Changes`}
-                  {isDuplicate && t`Duplicate`}
+                  {isCreate && t`创建`}
+                  {isUpdate && t`保存`}
+                  {isDuplicate && t`复制`}
                 </Button>
 
-                {isCreate && (
+                {/* {isCreate && (
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button type="button" size="icon" className="rounded-l-none border-l">
+                      <Button type="button" size="icon" className="border-l rounded-l-none">
                         <CaretDown />
                       </Button>
                     </DropdownMenuTrigger>
@@ -259,7 +257,7 @@ export const ResumeDialog = () => {
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
-                )}
+                )} */}
               </div>
             </DialogFooter>
           </form>

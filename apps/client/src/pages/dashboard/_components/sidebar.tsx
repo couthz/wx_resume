@@ -83,24 +83,24 @@ export const Sidebar = ({ setOpen }: SidebarProps) => {
   const sidebarItems: SidebarItem[] = [
     {
       path: "/dashboard/resumes",
-      name: t`Resumes`,
+      name: t`我的简历`,
       shortcut: "⇧R",
       icon: <ReadCvLogo />,
     },
     {
       path: "/dashboard/settings",
-      name: t`Settings`,
+      name: t`设置`,
       shortcut: "⇧S",
       icon: <FadersHorizontal />,
     },
   ];
 
   return (
-    <div className="flex h-full flex-col gap-y-4">
-      <div className="ml-12 flex justify-center lg:ml-0">
-        <Button asChild size="icon" variant="ghost" className="h-10 w-10 p-0">
+    <div className="flex flex-col h-full gap-y-4">
+      <div className="flex justify-center ">
+        <Button asChild size="icon" variant="ghost" className="w-10 h-10 p-0">
           <Link to="/">
-            <Icon size={24} className="mx-auto hidden lg:block" />
+            <Icon size={96} className="hidden mx-auto lg:block" />
           </Link>
         </Button>
       </div>
@@ -118,13 +118,13 @@ export const Sidebar = ({ setOpen }: SidebarProps) => {
       <Separator className="opacity-50" />
 
       <UserOptions>
-        <Button size="lg" variant="ghost" className="w-full justify-start px-3">
+        <Button size="lg" variant="ghost" className="justify-start w-full px-3">
           <UserAvatar size={24} className="mr-3" />
           <span>{user?.name}</span>
         </Button>
       </UserOptions>
 
-      <Copyright className="ml-2" />
+      {/* <Copyright className="ml-2" /> */}
     </div>
   );
 };

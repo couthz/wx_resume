@@ -90,7 +90,7 @@ export const ResumeListItem = ({ resume }: Props) => {
           }}
         >
           <PencilSimple size={14} className="mr-2" />
-          {t`Rename`}
+          {t`重命名`}
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={(event) => {
@@ -146,7 +146,7 @@ export const ResumeListItem = ({ resume }: Props) => {
               onClick={onOpen}
               className="group"
               title={resume.title}
-              description={t`Last updated ${lastUpdated}`}
+              // description={t`上次更新 ${lastUpdated}`}
               end={dropdownMenu}
             />
           </HoverCardTrigger>
@@ -171,17 +171,17 @@ export const ResumeListItem = ({ resume }: Props) => {
       <ContextMenuContent>
         <ContextMenuItem onClick={onOpen}>
           <FolderOpen size={14} className="mr-2" />
-          {t`Open`}
+          {t`打开`}
         </ContextMenuItem>
         <ContextMenuItem onClick={onUpdate}>
           <PencilSimple size={14} className="mr-2" />
-          {t`Rename`}
+          {t`重命名`}
         </ContextMenuItem>
         <ContextMenuItem onClick={onDuplicate}>
           <CopySimple size={14} className="mr-2" />
-          {t`Duplicate`}
+          {t`复制`}
         </ContextMenuItem>
-        {resume.locked ? (
+        {/* {resume.locked ? (
           <ContextMenuItem onClick={onLockChange}>
             <LockOpen size={14} className="mr-2" />
             {t`Unlock`}
@@ -191,11 +191,11 @@ export const ResumeListItem = ({ resume }: Props) => {
             <Lock size={14} className="mr-2" />
             {t`Lock`}
           </ContextMenuItem>
-        )}
+        )} */}
         <ContextMenuSeparator />
         <ContextMenuItem onClick={onDelete} className="text-error">
           <TrashSimple size={14} className="mr-2" />
-          {t`Delete`}
+          {t`删除`}
         </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>

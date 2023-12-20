@@ -11,7 +11,7 @@ import {
   AlertDialogTitle,
 } from "@reactive-resume/ui";
 
-import { useLockResume } from "@/client/services/resume/lock";
+import { useLockResume } from "@/client/services/resume";
 import { useDialog } from "@/client/stores/dialog";
 
 export const LockDialog = () => {

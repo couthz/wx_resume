@@ -17,7 +17,7 @@ export const ResumesPage = () => {
     <>
       <Helmet>
         <title>
-          {t`Resumes`} - {t`Reactive Resume`}
+          {t`我的简历`} - {t`微行简历`}
         </title>
       </Helmet>
 
@@ -32,17 +32,17 @@ export const ResumesPage = () => {
             animate={{ opacity: 1, x: 0 }}
             className="text-4xl font-bold tracking-tight"
           >
-            {t`Resumes`}
+            {t`我的简历`}
           </motion.h1>
 
           <TabsList>
-            <TabsTrigger value="grid" className="h-8 w-8 p-0 sm:h-8 sm:w-auto sm:px-4">
+            <TabsTrigger value="grid" className="w-8 h-8 p-0 sm:h-8 sm:w-auto sm:px-4">
               <SquaresFour />
-              <span className="ml-2 hidden sm:block">{t`Grid`}</span>
+              <span className="hidden ml-2 sm:block">{t`网格视图`}</span>
             </TabsTrigger>
-            <TabsTrigger value="list" className="h-8 w-8 p-0 sm:h-8 sm:w-auto sm:px-4">
+            <TabsTrigger value="list" className="w-8 h-8 p-0 sm:h-8 sm:w-auto sm:px-4">
               <List />
-              <span className="ml-2 hidden sm:block">{t`List`}</span>
+              <span className="hidden ml-2 sm:block">{t`列表视图`}</span>
             </TabsTrigger>
           </TabsList>
         </div>

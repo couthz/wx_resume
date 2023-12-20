@@ -21,24 +21,24 @@ export const HomePage = () => {
         <html lang={i18n.locale} />
 
         <title>
-          {t`Reactive Resume`} - {t`A free and open-source resume builder`}
+          {t`微行简历`}
         </title>
 
         <meta
           name="description"
-          content="A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
+          content="轻松、高效管理个人简历"
         />
       </Helmet>
 
       <HeroSection />
-      <LogoCloudSection />
+      {/* <LogoCloudSection />
       <StatisticsSection />
       <FeaturesSection />
       <TemplatesSection />
       <TestimonialsSection />
       <SupportSection />
       <FAQSection />
-      <ContributorsSection />
+      <ContributorsSection /> */}
     </main>
   );
 };

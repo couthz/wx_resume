@@ -13,7 +13,7 @@ export const SettingsPage = () => (
   <>
     <Helmet>
       <title>
-        {t`Settings`} - {t`Reactive Resume`}
+        {t`设置`} - {t`微行简历`}
       </title>
     </Helmet>
 
@@ -23,7 +23,7 @@ export const SettingsPage = () => (
         animate={{ opacity: 1, x: 0 }}
         className="text-4xl font-bold tracking-tight"
       >
-        {t`Settings`}
+        {t`设置`}
       </motion.h1>
 
       <ScrollArea hideScrollbar className="h-[calc(100vh-140px)] lg:h-[calc(100vh-88px)]">
@@ -32,11 +32,11 @@ export const SettingsPage = () => (
           <Separator />
           <SecuritySettings />
           <Separator />
-          <ProfileSettings />
+          {/* <ProfileSettings />
+          <Separator /> */}
+          {/* <OpenAISettings />
           <Separator />
-          <OpenAISettings />
-          <Separator />
-          <DangerZoneSettings />
+          <DangerZoneSettings /> */}
         </div>
       </ScrollArea>
     </div>

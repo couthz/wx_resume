@@ -29,7 +29,7 @@ const Header = () => {
   const basics = useArtboardStore((state) => state.resume.basics);
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-2 pb-2 text-center">
+    <div className="flex flex-col items-center justify-center pb-2 space-y-2 text-center">
       <Picture />
 
       <div>
@@ -486,17 +486,17 @@ export const Azurill = ({ columns, isFirstPage = false }: TemplateProps) => {
   const [main, sidebar] = columns;
 
   return (
-    <div className="p-custom space-y-3">
+    <div className="space-y-3 p-custom">
       {isFirstPage && <Header />}
 
       <div className="grid grid-cols-3 gap-x-4">
-        <div className="sidebar group space-y-4">
+        <div className="space-y-4 sidebar group">
           {sidebar.map((section) => (
             <Fragment key={section}>{mapSectionToComponent(section)}</Fragment>
           ))}
         </div>
 
-        <div className="main group col-span-2 space-y-4">
+        <div className="col-span-2 space-y-4 main group">
           {main.map((section) => (
             <Fragment key={section}>{mapSectionToComponent(section)}</Fragment>
           ))}

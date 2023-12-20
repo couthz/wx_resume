@@ -23,17 +23,13 @@ export const AuthLayout = () => {
   const hideDivider = !providers.includes("email") || providers.length === 1;
 
   return (
-    <div className="flex h-screen w-screen">
-      <div className="relative flex w-full flex-col justify-center gap-y-8 px-12 sm:mx-auto sm:basis-[420px] sm:px-0 lg:basis-[480px] lg:px-12">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="h-24 w-24">
-            <Logo className="-ml-3" size={96} />
+    <div className="flex w-screen h-screen">
+      <div className="relative flex w-full flex-col justify-center  px-12 sm:mx-auto sm:basis-[420px] sm:px-0 lg:basis-[480px] lg:px-12">
+        <div className="relative items-center justify-between">
+          <Link to="/" >
+            <Logo className="relative mx-auto" size={180} />
           </Link>
 
-          <div className="right-0 space-x-2 text-right lg:absolute lg:p-12 lg:text-center">
-            <LocaleSwitch />
-            <ThemeSwitch />
-          </div>
         </div>
 
         <Outlet />
@@ -62,11 +58,11 @@ export const AuthLayout = () => {
           width={1920}
           height={1080}
           alt="Open books on a table"
-          className="h-screen w-full object-cover object-center"
+          className="object-cover object-center w-full h-screen"
           src="/backgrounds/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg"
         />
 
-        <div className="absolute bottom-5 right-5 z-10 bg-primary/30 px-4 py-2 text-xs font-medium text-primary-foreground backdrop-blur-sm">
+        {/* <div className="absolute z-10 px-4 py-2 text-xs font-medium bottom-5 right-5 bg-primary/30 text-primary-foreground backdrop-blur-sm">
           <a
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -74,7 +70,7 @@ export const AuthLayout = () => {
           >
             {t`Photograph by Patrick Tomasso`}
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );

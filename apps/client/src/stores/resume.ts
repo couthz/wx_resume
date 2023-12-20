@@ -9,7 +9,6 @@ import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 import { useStoreWithEqualityFn } from "zustand/traditional";
-
 import { debouncedUpdateResume } from "../services/resume";
 
 type ResumeStore = {
@@ -26,7 +25,7 @@ type ResumeStore = {
 export const useResumeStore = create<ResumeStore>()(
   temporal(
     immer((set) => ({
-      resume: {} as ResumeDto,
+      resume: ResumeDto.default(),
       setValue: (path, value) => {
         set((state) => {
           if (path === "visibility") {
@@ -34,7 +33,6 @@ export const useResumeStore = create<ResumeStore>()(
           } else {
             state.resume.data = _set(state.resume.data, path, value);
           }
-
           debouncedUpdateResume(JSON.parse(JSON.stringify(state.resume)));
         });
       },
@@ -42,7 +40,7 @@ export const useResumeStore = create<ResumeStore>()(
         const section: CustomSectionGroup = {
           ...defaultSection,
           id: createId(),
-          name: t`Custom Section`,
+          name: t`自定义模块`,
           items: [],
         };
 

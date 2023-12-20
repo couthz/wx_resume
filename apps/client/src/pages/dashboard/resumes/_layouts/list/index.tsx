@@ -17,12 +17,6 @@ export const ListView = () => {
         <CreateResumeListItem />
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
-      >
-        <ImportResumeListItem />
-      </motion.div>
 
       {loading &&
         [...Array(4)].map((_, i) => (

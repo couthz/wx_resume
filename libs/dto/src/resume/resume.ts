@@ -17,4 +17,18 @@ export const resumeSchema = z.object({
   updatedAt: z.date().or(z.dateString()),
 });
 
-export class ResumeDto extends createZodDto(resumeSchema) {}
+export class ResumeDto extends createZodDto(resumeSchema) {
+  static default() {
+    return this.create({
+      "id": "clq1tmndk000p5aulo26b7yfv",
+      "title": "zhc",
+      "slug": "zhc",
+      "data": defaultResumeData,
+      "visibility": "private",
+      "locked": false,
+      "userId": "clq0uyx2p00005aulwsz33gv6",
+      "createdAt": "2023-12-12T04:06:58.519Z",
+      "updatedAt": "2023-12-15T14:08:27.570Z"
+  });
+  }
+}

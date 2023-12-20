@@ -22,10 +22,9 @@ export const BuilderLayout = () => {
 
       if (event.data.type === "ZOOM_IN") transformRef.current?.zoomIn(0.2);
       if (event.data.type === "ZOOM_OUT") transformRef.current?.zoomOut(0.2);
-      if (event.data.type === "CENTER_VIEW") transformRef.current?.centerView();
       if (event.data.type === "RESET_VIEW") {
         transformRef.current?.resetTransform(0);
-        setTimeout(() => transformRef.current?.centerView(0.8, 0), 10);
+        setTimeout(() => transformRef.current?.centerView(0.9, 0), 10);
       }
     };
 
@@ -40,13 +39,14 @@ export const BuilderLayout = () => {
     <TransformWrapper
       centerOnInit
       maxScale={2}
-      minScale={0.4}
-      initialScale={0.8}
+      minScale={0.3}
+      initialScale={0.9}
       ref={transformRef}
-      limitToBounds={false}
+      disabled={true}
+      limitToBounds={true}
     >
       <TransformComponent
-        wrapperClass="!w-screen !h-screen"
+        wrapperClass="!w-screen "
         contentClass="grid items-start justify-center space-x-12 pointer-events-none"
         contentStyle={{
           width: `${layout.length * (pageSizeMap[format].width * MM_TO_PX + 42)}px`,
@@ -58,17 +58,18 @@ export const BuilderLayout = () => {
             <motion.div
               layout
               key={pageIndex}
-              initial={{ opacity: 0, x: -200, y: 0 }}
+              initial={{ opacity: 0, x: -200, y:0 }}
               animate={{ opacity: 1, x: 0, transition: { delay: pageIndex * 0.3 } }}
-              exit={{ opacity: 0, x: -200 }}
+              exit={{ opacity: 0, x: -200, }}
             >
               <Page mode="builder" pageNumber={pageIndex + 1}>
                 <Template isFirstPage={pageIndex === 0} columns={columns as SectionKey[][]} />
+
               </Page>
             </motion.div>
           ))}
         </AnimatePresence>
-      </TransformComponent>
+    </TransformComponent>
     </TransformWrapper>
   );
 };

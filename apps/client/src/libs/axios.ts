@@ -31,7 +31,7 @@ axios.interceptors.response.use(
     if (description) {
       toast({
         variant: "error",
-        title: t`Oops, the server returned an error.`,
+        title: t`出错了..`,
         description,
       });
     }

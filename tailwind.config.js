@@ -10,6 +10,9 @@ module.exports = {
       },
     },
     extend: {
+      spacing: {
+        '128': '32rem',
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

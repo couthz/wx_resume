@@ -4,9 +4,9 @@ import { ErrorMessage } from "@reactive-resume/utils";
 export const translateError = (error: ErrorMessage) => {
   switch (error) {
     case ErrorMessage.InvalidCredentials:
-      return t`It doesn't look like a user exists with the credentials you provided.`;
+      return t`用户不存在或密码错误.`;
     case ErrorMessage.UserAlreadyExists:
-      return t`A user with this email address and/or username already exists.`;
+      return t`用户名或Email已存在`;
     case ErrorMessage.SecretsNotFound:
       return t`User does not have an associated 'secrets' record. Please report this issue on GitHub.`;
     case ErrorMessage.OAuthUser:

@@ -138,7 +138,9 @@ export class PrinterService {
       const processPage = async (index: number) => {
         const pageElement = await page.$(`[data-page="${index}"]`);
         const width = (await (await pageElement?.getProperty("scrollWidth"))?.jsonValue()) ?? 0;
-        const height = (await (await pageElement?.getProperty("scrollHeight"))?.jsonValue()) ?? 0;
+        const totalHeight =
+          (await (await pageElement?.getProperty("scrollHeight"))?.jsonValue()) ?? 0;
+        const height = width * (297 / 210);
 
         const tempHtml = await page.evaluate((element: HTMLDivElement) => {
           const clonedElement = element.cloneNode(true) as HTMLDivElement;
@@ -147,7 +149,42 @@ export class PrinterService {
           return tempHtml;
         }, pageElement);
 
-        pagesBuffer.push(await page.pdf({ width, height, printBackground: true }));
+        let currentIndex = 0;
+
+        // 获取网页的总高度
+        let pageTime = 0;
+        page.setViewport({
+          width: 794,
+          height: 1123,
+          deviceScaleFactor: 3,
+        });
+        while (currentIndex < totalHeight) {
+          // 滚动到当前位置
+          await page.evaluate((index) => {
+            window.scrollTo(0, index);
+          }, currentIndex);
+
+          const imageHeight =
+            pageTime === 0
+              ? height - resume.data.metadata.page.margin
+              : height - resume.data.metadata.page.margin * 2;
+          console.log("当前y:" + currentIndex);
+          console.log("当前高度:" + imageHeight);
+          // 截取当前视图的内容
+          const buffer = await page.screenshot({
+            clip: { x: 0, y: currentIndex, width: width, height: imageHeight },
+            type: "jpeg",
+            quality: 100,
+          });
+
+          // 将截图的 Buffer 添加到数组中
+          pagesBuffer.push(buffer);
+           //pagesBuffer.push(await page.pdf({ width, height:imageHeight, printBackground: true, }));
+
+          // 更新当前位置
+          currentIndex += imageHeight;
+          pageTime++;
+        }
 
         await page.evaluate((tempHtml: string) => {
           document.body.innerHTML = tempHtml;
@@ -181,9 +218,18 @@ export class PrinterService {
       await Promise.all(fontsBuffer.map((buffer) => pdf.embedFont(buffer)));
 
       for (let index = 0; index < pagesBuffer.length; index++) {
-        const page = await PDFDocument.load(pagesBuffer[index]);
-        const [copiedPage] = await pdf.copyPages(page, [0]);
-        pdf.addPage(copiedPage);
+        const tempImage = await pdf.embedJpg(pagesBuffer[index]);
+        const jpgDims = tempImage.scale(595 / 794 / 3);
+        const newPage = pdf.addPage();
+        newPage.drawImage(tempImage, {
+          y: resume.data.metadata.page.margin * (595 / 794),
+          width: jpgDims.width,
+          height: jpgDims.height,
+        });
+
+        // const page = await PDFDocument.load(pagesBuffer[index]);
+        // const [copiedPage] = await pdf.copyPages(page, [0]);
+        // pdf.addPage(copiedPage);
       }
 
       // Save the PDF to storage and return the URL to download the resume
