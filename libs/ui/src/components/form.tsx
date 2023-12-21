@@ -108,7 +108,7 @@ export const FormMessage = forwardRef<
       className={cn("text-xs font-medium leading-relaxed text-error", className)}
       {...props}
     >
-      {t`${body}`}
+      {body}
     </p>
   );
 });

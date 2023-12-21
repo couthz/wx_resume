@@ -1689,5 +1689,3 @@ msgstr "放大"
 msgid "Zoom Out"
 msgstr "缩小"
 
-msgid ""
-msgstr ""
