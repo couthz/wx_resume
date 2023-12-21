@@ -34,6 +34,7 @@ export class PrinterService {
 
   private async getBrowser() {
     try {
+      console.log(this.browserURL);
       return await connect({ browserWSEndpoint: this.browserURL });
     } catch (error) {
       throw new InternalServerErrorException(ErrorMessage.InvalidBrowserConnection, error.message);

@@ -46,7 +46,7 @@ export const RegisterPage = () => {
       username: "",
       email: "",
       password: "",
-      locale: "en-US",
+      locale: "zh-CN",
     },
   });
 

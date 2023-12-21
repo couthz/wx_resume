@@ -11,7 +11,7 @@ CREATE TABLE "User" (
     "picture" TEXT,
     "username" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "locale" TEXT NOT NULL DEFAULT 'en-US',
+    "locale" TEXT NOT NULL DEFAULT 'zh-CN',
     "emailVerified" BOOLEAN NOT NULL DEFAULT false,
     "twoFactorEnabled" BOOLEAN NOT NULL DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,

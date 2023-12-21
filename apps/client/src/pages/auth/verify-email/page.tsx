@@ -45,7 +45,7 @@ export const VerifyEmailPage = () => {
       </Helmet>
 
       <div className="space-y-2">
-        <h2 className="text-2xl font-semibold tracking-tight">{t`Verify your email address`}</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">{t`验证邮件已发送`}</h2>
         <p className="leading-relaxed opacity-75">
           <Trans>
             您的邮箱应该已经收到来自 <strong>微行简历</strong> 的验证链接

@@ -19,7 +19,7 @@ export const userSchema = z.object({
   picture: z.literal("").or(z.null()).or(z.string().url()),
   username: usernameSchema,
   email: z.string().email(),
-  locale: z.string().default("en-US"),
+  locale: z.string().default("zh-CN"),
   emailVerified: z.boolean().default(false),
   twoFactorEnabled: z.boolean().default(false),
   provider: z.enum(["email", "github", "google"]).default("email"),

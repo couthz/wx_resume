@@ -60,7 +60,7 @@ export const BasicsSection = () => {
           <Label htmlFor="basics.phone">{t`联系方式`}</Label>
           <Input
             id="basics.phone"
-            placeholder="+1 (123) 4567 7890"
+            placeholder="13000000000"
             value={basics.phone}
             onChange={(event) => setValue("basics.phone", event.target.value)}
           />

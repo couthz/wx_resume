@@ -25,13 +25,13 @@ export const UserOptions = ({ children }: Props) => {
 
       <DropdownMenuContent side="top" align="start" className="w-48">
         <DropdownMenuItem onClick={() => navigate("/dashboard/settings")}>
-          {t`Settings`}
+          {t`设置`}
           {/* eslint-disable-next-line lingui/no-unlocalized-strings */}
           <KeyboardShortcut>⇧S</KeyboardShortcut>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => logout()}>
-          {t`Logout`}
+          {t`退出登录`}
           {/* eslint-disable-next-line lingui/no-unlocalized-strings */}
           <KeyboardShortcut>⇧Q</KeyboardShortcut>
         </DropdownMenuItem>

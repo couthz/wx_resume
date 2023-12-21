@@ -44,7 +44,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, "google") {
         user = await this.userService.create({
           email,
           picture,
-          locale: "en-US",
+          locale: "zh-CN",
           name: displayName,
           provider: "google",
           emailVerified: true, // auto-verify emails
