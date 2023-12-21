@@ -4,6 +4,7 @@ import { FormFieldContext, FormItemContext, useFormField } from "@reactive-resum
 import { cn } from "@reactive-resume/utils";
 import { forwardRef, useId } from "react";
 import { Controller, ControllerProps, FieldPath, FieldValues, FormProvider } from "react-hook-form";
+import { t } from "@lingui/macro";
 
 import { Label } from "./label";
 
@@ -107,7 +108,7 @@ export const FormMessage = forwardRef<
       className={cn("text-xs font-medium leading-relaxed text-error", className)}
       {...props}
     >
-      {body}
+      {t`{body}`}
     </p>
   );
 });
