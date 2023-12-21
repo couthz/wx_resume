@@ -25,11 +25,11 @@ export const TypographySection = () => {
       webfontloader.load({
         events: false,
         classes: false,
-        //google: { families: [font], text: font },
-        custom: {
-          families: [fontFamily],
-          urls: ["../styles/fonts/_fonts_local.css"],
-        },
+        google: { families: [fontFamily], text: fontFamily },
+        // custom: {
+        //   families: [fontFamily],
+        //   urls: ["../styles/fonts/_fonts_local.css"],
+        // },
       });
     });
   }, [fonts]);

@@ -17,7 +17,7 @@ export const fonts: Font[] = [
       "400",
     ],
     files: {
-      "400": "https://gstatic.loli.net/s/notosanssc/v36/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FrYVHbd7X9HBZ8Q9t.woff2"
+      "400": "https://fonts.gstatic.com/s/notosanssc/v36/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYlNbPzT7HEL7j12XCOHJKg4RgZw3nFTvwZ8atTsBvwlvRUk7mYP2g.108.woff2"
     }
   },
   {
@@ -29,7 +29,7 @@ export const fonts: Font[] = [
       "400",
     ],
     files: {
-      "400": "https://gstatic.loli.net/s/notoserifsc/v22/H4chBXePl9DZ0Xe7gG9cyOj7oqOcaThrVMcaeccjhXXDsOyAEEmuIi6j7j64sLjgBtMI1z49XW4.4.woff2"
+      "400": "https://fonts.gstatic.com/s/notoserifsc/v22/H4chBXePl9DZ0Xe7gG9cyOj7oqOcaThrVMcaeccjhXXDsOyAEEmuIi6j7j64sLjgBtMI1z49XW4.37.woff2"
     }
   },
 ];

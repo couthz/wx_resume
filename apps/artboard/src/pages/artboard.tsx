@@ -15,10 +15,7 @@ export const ArtboardPage = () => {
 
   useEffect(() => {
     webfontloader.load({
-      custom: {
-        families: [fontString],
-        urls: [`https://fonts.loli.net/css2?family=${fontString}`],
-      },
+      google: { families: [fontString] },
       active: () => {
         const width = window.document.body.offsetWidth;
         const height = window.document.body.offsetHeight;
