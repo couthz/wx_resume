@@ -15,7 +15,7 @@ export const HeroSection = () => (
     <Decoration.Grid />
     <Decoration.Gradient />
 
-    <div className="px-6 mx-auto max-w-7xl lg:flex lg:h-screen lg:items-center lg:px-12">
+    <div className="px-6 mx-auto lg:flex lg:h-screen lg:items-center lg:px-12">
       <motion.div
         className="max-w-3xl mx-auto mt-32 shrink-0 lg:mx-0 lg:mt-0 lg:max-w-xl lg:pt-8"
         viewport={{ once: true }}

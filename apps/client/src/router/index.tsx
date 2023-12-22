@@ -79,11 +79,18 @@ export const routes = createRoutesFromElements(
         </Route>
       </Route>
     </Route>
+    <Route path="guest-builder">
+      <Route element={<GuestGuard />}>
+        <Route element={<ResumeEditLayout />}>
+          <Route path="temp-resume" element={<BuilderPage />} />
+        </Route>
+      </Route>
+    </Route>
 
     {/* Public Routes */}
-    <Route path=":username">
+    {/* <Route path=":username">
       <Route path=":slug" loader={publicLoader} element={<PublicResumePage />} />
-    </Route>
+    </Route> */}
   </Route>,
 );
 

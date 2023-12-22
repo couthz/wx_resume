@@ -38,7 +38,7 @@ export const defaultBasics: Basics = {
   url: defaultUrl,
   customFields: [],
   picture: {
-    url: "",
+    url: "https://storage.minicv.net/default/clqf8eqgf0000khx1dbyqayng/pictures/clqf8eqgf0000khx1dbyqayng.jpg",
     size: 64,
     aspectRatio: 1,
     borderRadius: 0,

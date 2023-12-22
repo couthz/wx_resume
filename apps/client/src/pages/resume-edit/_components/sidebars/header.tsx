@@ -27,6 +27,8 @@ import { useBuilderStore } from "@/client/stores/builder";
 import { useResumeStore } from "@/client/stores/resume";
 import { HexColorPicker } from "react-colorful";
 import { usePrintResume } from "@/client/services/resume/print";
+import { useAuthStore } from "@/client/stores/auth";
+import { toast } from "@/client/hooks/use-toast";
 
 export const BuilderHeader = () => {
   const { printResume } = usePrintResume();
@@ -43,8 +45,18 @@ export const BuilderHeader = () => {
   const setValue = useResumeStore((state) => state.setValue);
   const typography = useResumeStore((state) => state.resume.data.metadata.typography);
   const theme = useResumeStore((state) => state.resume.data.metadata.theme);
+  const isLoggedIn = useAuthStore((state) => !!state.user);
 
   const onPdfExport = async () => {
+    if (!isLoggedIn) {
+      toast({
+        variant: "info",
+        title: "",
+        description: "下载简历功能需登录后使用",
+      });
+      return;
+    }
+
     const { resume } = useResumeStore.getState();
     const { url } = await printResume({ id: resume.id });
 

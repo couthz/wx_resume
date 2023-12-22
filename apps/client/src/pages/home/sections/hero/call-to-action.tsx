@@ -30,8 +30,12 @@ export const HeroCTA = () => {
     return (
       <>
         <Button asChild size="lg">
+          <Link to="/guest-builder/temp-resume">{t`快速体验`}</Link>
+        </Button>
+        <Button asChild size="lg">
           <Link to="/auth/login">{t`去登录`}</Link>
         </Button>
+
 
         {/* <Button asChild size="lg" variant="link">
           <a href="https://docs.rxresu.me" target="_blank" rel="noopener noreferrer nofollow">

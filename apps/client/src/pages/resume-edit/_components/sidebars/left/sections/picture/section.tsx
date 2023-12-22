@@ -20,8 +20,13 @@ import { useResumeStore } from "@/client/stores/resume";
 
 import { PictureOptions } from "./options";
 import { useUploadImage } from "@/client/services/storage";
+import { useAuthStore } from "@/client/stores/auth";
 
 export const PictureSection = () => {
+
+  const isLoggedIn = useAuthStore((state) => !!state.user);
+
+
   const inputRef = useRef<HTMLInputElement>(null);
   const { uploadImage } = useUploadImage();
 
@@ -51,9 +56,9 @@ export const PictureSection = () => {
   return (
     <div className="flex items-center gap-x-4">
       <div className="relative cursor-pointer group" onClick={onAvatarClick}>
-        <Avatar className="h-14 w-14 bg-secondary">
+      { isLoggedIn &&(<Avatar className="h-14 w-14 bg-secondary">
           <AvatarImage src={picture.url} />
-        </Avatar>
+        </Avatar>)}
 
         {isValidUrl ? (
           <div className="absolute inset-0 flex items-center justify-center transition-opacity rounded-full opacity-0 pointer-events-none bg-background/30 group-hover:opacity-100">
@@ -69,14 +74,14 @@ export const PictureSection = () => {
       <div className="flex w-full flex-col gap-y-1.5">
         <Label htmlFor="basics.picture.url">{t`证件照`}</Label>
         <div className="flex items-center gap-x-2">
-          <input hidden type="file" ref={inputRef} onChange={onSelectImage} />
+        <input hidden  type="file" ref={inputRef} onChange={onSelectImage} />
 
-          <Input
+          {isLoggedIn && (<Input
             id="basics.picture.url"
             placeholder="https://..."
             value={picture.url}
             onChange={(event) => setValue("basics.picture.url", event.target.value)}
-          />
+          />)}
 
           {isValidUrl && (
             <Popover>

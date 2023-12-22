@@ -3,12 +3,13 @@ import { useMutation } from "@tanstack/react-query";
 import { axios } from "@/client/libs/axios";
 import { queryClient } from "@/client/libs/query-client";
 import { useAuthStore } from "@/client/stores/auth";
+import { useResumeStore } from "@/client/stores/resume";
 
 export const logout = () => axios.post("/auth/logout");
 
 export const useLogout = () => {
   const setUser = useAuthStore((state) => state.setUser);
-
+  const resetResumeData =  useResumeStore(state => state.resetValue);
   const {
     error,
     isPending: loading,
@@ -17,6 +18,7 @@ export const useLogout = () => {
     mutationFn: logout,
     onSuccess: () => {
       setUser(null);
+      resetResumeData();
       queryClient.setQueryData(["user"], null);
     },
     onError: () => {

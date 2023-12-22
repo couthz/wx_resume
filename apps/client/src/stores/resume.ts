@@ -10,12 +10,14 @@ import { devtools } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 import { useStoreWithEqualityFn } from "zustand/traditional";
 import { debouncedUpdateResume } from "../services/resume";
+import { useAuthStore } from "./auth";
 
 type ResumeStore = {
   resume: ResumeDto;
 
   // Actions
   setValue: (path: string, value: unknown) => void;
+  resetValue: () => void;
 
   // Custom Section Actions
   addSection: () => void;
@@ -34,6 +36,11 @@ export const useResumeStore = create<ResumeStore>()(
             state.resume.data = _set(state.resume.data, path, value);
           }
           debouncedUpdateResume(JSON.parse(JSON.stringify(state.resume)));
+        });
+      },
+      resetValue: () => {
+        set((state) => {
+          state.resume = ResumeDto.default();
         });
       },
       addSection: () => {
